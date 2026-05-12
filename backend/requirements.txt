@@ -1,0 +1,7 @@
+fastapi~=0.115
+uvicorn[standard]~=0.32
+langgraph~=0.2.60
+pydantic~=2.10
+ag-ui-protocol>=0.1.0
+a2ui-agent-sdk>=0.2.0
+jsonschema>=4.20

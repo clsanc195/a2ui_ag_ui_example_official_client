@@ -1,0 +1,202 @@
+[
+  {
+    "id": "r_001",
+    "name": "Joe's Stone Crab",
+    "cuisine": "Seafood",
+    "rating": 5.0,
+    "review_count": 4821,
+    "distance_miles": 3.2,
+    "neighborhood": "South Beach",
+    "image_url": "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80"
+  },
+  {
+    "id": "r_002",
+    "name": "Zuma Miami",
+    "cuisine": "Japanese Izakaya",
+    "rating": 5.0,
+    "review_count": 3127,
+    "distance_miles": 2.4,
+    "neighborhood": "Downtown",
+    "image_url": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=600&q=80"
+  },
+  {
+    "id": "r_003",
+    "name": "Stubborn Seed",
+    "cuisine": "New American",
+    "rating": 5.0,
+    "review_count": 1684,
+    "distance_miles": 4.1,
+    "neighborhood": "South Beach",
+    "image_url": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80"
+  },
+  {
+    "id": "r_004",
+    "name": "Mandolin Aegean Bistro",
+    "cuisine": "Greek",
+    "rating": 5.0,
+    "review_count": 2210,
+    "distance_miles": 3.7,
+    "neighborhood": "Design District",
+    "image_url": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80"
+  },
+  {
+    "id": "r_005",
+    "name": "Versailles",
+    "cuisine": "Cuban",
+    "rating": 4.6,
+    "review_count": 5934,
+    "distance_miles": 4.8,
+    "neighborhood": "Little Havana",
+    "image_url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80"
+  },
+  {
+    "id": "r_006",
+    "name": "L'Atelier de Joël Robuchon",
+    "cuisine": "French",
+    "rating": 5.0,
+    "review_count": 982,
+    "distance_miles": 3.6,
+    "neighborhood": "Design District",
+    "image_url": "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=600&q=80"
+  },
+  {
+    "id": "r_007",
+    "name": "Ariete",
+    "cuisine": "Cuban–French",
+    "rating": 5.0,
+    "review_count": 1156,
+    "distance_miles": 5.9,
+    "neighborhood": "Coconut Grove",
+    "image_url": "https://images.unsplash.com/photo-1559847844-5315695dadae?w=600&q=80"
+  },
+  {
+    "id": "r_008",
+    "name": "Hiden",
+    "cuisine": "Omakase",
+    "rating": 5.0,
+    "review_count": 412,
+    "distance_miles": 2.8,
+    "neighborhood": "Wynwood",
+    "image_url": "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=600&q=80"
+  },
+  {
+    "id": "r_009",
+    "name": "Uchi",
+    "cuisine": "Sushi",
+    "rating": 4.9,
+    "review_count": 1742,
+    "distance_miles": 2.9,
+    "neighborhood": "Wynwood",
+    "image_url": "https://images.unsplash.com/photo-1553621042-f6e147245754?w=600&q=80"
+  },
+  {
+    "id": "r_010",
+    "name": "Boia De",
+    "cuisine": "Italian",
+    "rating": 5.0,
+    "review_count": 1320,
+    "distance_miles": 4.4,
+    "neighborhood": "Buena Vista",
+    "image_url": "https://images.unsplash.com/photo-1481931098730-318b6f776db0?w=600&q=80"
+  },
+  {
+    "id": "r_011",
+    "name": "Sunny's Steakhouse",
+    "cuisine": "Steakhouse",
+    "rating": 5.0,
+    "review_count": 970,
+    "distance_miles": 6.8,
+    "neighborhood": "Little River",
+    "image_url": "https://images.unsplash.com/photo-1546964124-0cce460f38ef?w=600&q=80"
+  },
+  {
+    "id": "r_012",
+    "name": "Cote Miami",
+    "cuisine": "Korean Steakhouse",
+    "rating": 5.0,
+    "review_count": 1865,
+    "distance_miles": 3.5,
+    "neighborhood": "Design District",
+    "image_url": "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80"
+  },
+  {
+    "id": "r_013",
+    "name": "Claudie",
+    "cuisine": "French–Mediterranean",
+    "rating": 4.9,
+    "review_count": 624,
+    "distance_miles": 2.1,
+    "neighborhood": "Brickell",
+    "image_url": "https://images.unsplash.com/photo-1592861956120-e524fc739696?w=600&q=80"
+  },
+  {
+    "id": "r_014",
+    "name": "Elcielo Brickell",
+    "cuisine": "Colombian Tasting",
+    "rating": 5.0,
+    "review_count": 1408,
+    "distance_miles": 2.0,
+    "neighborhood": "Brickell",
+    "image_url": "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80"
+  },
+  {
+    "id": "r_015",
+    "name": "The River Oyster Bar",
+    "cuisine": "Seafood",
+    "rating": 4.8,
+    "review_count": 2103,
+    "distance_miles": 2.2,
+    "neighborhood": "Brickell",
+    "image_url": "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80"
+  },
+  {
+    "id": "r_016",
+    "name": "Kaori Miami",
+    "cuisine": "Pan-Asian",
+    "rating": 4.8,
+    "review_count": 715,
+    "distance_miles": 2.1,
+    "neighborhood": "Brickell",
+    "image_url": "https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=600&q=80"
+  },
+  {
+    "id": "r_017",
+    "name": "Shiso",
+    "cuisine": "Asian Smokehouse",
+    "rating": 4.9,
+    "review_count": 538,
+    "distance_miles": 2.7,
+    "neighborhood": "Wynwood",
+    "image_url": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=600&q=80"
+  },
+  {
+    "id": "r_018",
+    "name": "Hiyakawa",
+    "cuisine": "Omakase",
+    "rating": 5.0,
+    "review_count": 689,
+    "distance_miles": 2.6,
+    "neighborhood": "Wynwood",
+    "image_url": "https://images.unsplash.com/photo-1611143669185-af224c5e3252?w=600&q=80"
+  },
+  {
+    "id": "r_019",
+    "name": "Estiatorio Milos",
+    "cuisine": "Greek Seafood",
+    "rating": 4.9,
+    "review_count": 1284,
+    "distance_miles": 3.4,
+    "neighborhood": "South Beach",
+    "image_url": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=600&q=80"
+  },
+  {
+    "id": "r_020",
+    "name": "ViceVersa",
+    "cuisine": "Neapolitan Italian",
+    "rating": 4.9,
+    "review_count": 462,
+    "distance_miles": 3.0,
+    "neighborhood": "Miami Beach",
+    "image_url": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&q=80"
+  }
+]
