@@ -145,11 +145,14 @@ function Node({ surface, component }: { surface: Surface; component: ComponentNo
       const action = p.action;
       const onClick = () => {
         const event = action?.event;
-        if (event?.name) {
-          useStore
-            .getState()
-            .sendAction({ name: event.name, context: event.context });
-        }
+        if (!event?.name) return;
+        // Include the surface's current form data so submit-style actions
+        // see what the user typed (otherwise context only carries whatever
+        // the agent declared on the Button itself).
+        const context: Record<string, any> = { ...(event.context ?? {}) };
+        const formData = (surface.dataModel as any)?.data?.form;
+        if (formData) context.data = formData;
+        useStore.getState().sendAction({ name: event.name, context });
       };
       return (
         <button
@@ -165,41 +168,80 @@ function Node({ surface, component }: { surface: Surface; component: ComponentNo
 
     case "TextField": {
       const path = p.text?.path ?? p.value?.path;
-      const value = path ? String(resolvePath(data, path) ?? "") : "";
+      const initial = path ? String(resolvePath(data, path) ?? "") : "";
       const label = resolveDynamic(p.label, data);
       const inputType = p.textFieldType ?? p.type ?? "text";
       return (
-        <label className="flex flex-col text-xs gap-1 text-stone-600 font-medium">
-          {label && <span>{label}</span>}
-          <input
-            type={inputType}
-            value={value}
-            onChange={(e) => path && surface.dataModel.set(path, e.target.value)}
-            className="rounded-md border border-stone-300 px-2 py-1.5 text-sm text-stone-900 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400"
-          />
-        </label>
+        <ControlledInput
+          key={path ?? ""}
+          surface={surface}
+          path={path}
+          initial={initial}
+          label={label}
+          inputType={inputType}
+        />
       );
     }
 
     case "DateTimeInput": {
       const path = p.value?.path;
-      const value = path ? String(resolvePath(data, path) ?? "") : "";
+      const initial = path ? String(resolvePath(data, path) ?? "") : "";
       return (
-        <label className="flex flex-col text-xs gap-1 text-stone-600 font-medium">
-          <span>When</span>
-          <input
-            type="datetime-local"
-            value={value}
-            onChange={(e) => path && surface.dataModel.set(path, e.target.value)}
-            className="rounded-md border border-stone-300 px-2 py-1.5 text-sm text-stone-900 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400"
-          />
-        </label>
+        <ControlledInput
+          key={path ?? ""}
+          surface={surface}
+          path={path}
+          initial={initial}
+          label="When"
+          inputType="datetime-local"
+        />
       );
     }
 
     default:
       return <span className="text-xs text-red-500">unsupported: {type}</span>;
   }
+}
+
+// Controlled input that keeps its own React state for the typed value and
+// pushes each keystroke into the surface's data model. The DataModel's `set`
+// fires per-path signals; our top-level useSurfaceVersion hook doesn't track
+// those signals, so without local state the input would be stuck at the
+// initial value (controlled-input semantics).
+function ControlledInput({
+  surface,
+  path,
+  initial,
+  label,
+  inputType,
+}: {
+  surface: Surface;
+  path: string | undefined;
+  initial: string;
+  label: string;
+  inputType: string;
+}) {
+  const [value, setValue] = useState(initial);
+  // Sync local state when the backend pushes new defaults (e.g., when the
+  // booking form is freshly created with tomorrow 7pm + party=2).
+  useEffect(() => {
+    setValue(initial);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initial]);
+  return (
+    <label className="flex flex-col text-xs gap-1 text-stone-600 font-medium">
+      {label && <span>{label}</span>}
+      <input
+        type={inputType}
+        value={value}
+        onChange={(e) => {
+          setValue(e.target.value);
+          if (path) surface.dataModel.set(path, e.target.value);
+        }}
+        className="rounded-md border border-stone-300 px-2 py-1.5 text-sm text-stone-900 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400"
+      />
+    </label>
+  );
 }
 
 function ChildById({ surface, id }: { surface: Surface; id: string }) {

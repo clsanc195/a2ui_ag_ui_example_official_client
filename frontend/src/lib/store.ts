@@ -45,9 +45,20 @@ let logCounter = 0;
 
 export const processor = new MessageProcessor([basicCatalog], (action) => {
   console.log("[a2ui] action from surface:", action);
-  // Buttons in any rendered surface emit actions via this listener. We forward
-  // them straight back to the AG-UI agent as a fresh user turn.
-  useStore.getState().sendAction({ name: action.name, context: action.context });
+
+  // The action context only carries what the Button's action declared (e.g.
+  // restaurantId). For form-submission actions we also need the surface's
+  // current data model — read it from the live SurfaceModel and tuck it
+  // under `data` in the context so the backend sees the entered values.
+  let context: Record<string, any> = { ...(action.context ?? {}) };
+  const surface = useStore.getState().surfaces.find((s) => s.id === action.surfaceId);
+  const fullData = (surface?.dataModel as any)?.data;
+  const formData = fullData?.form;
+  console.log("[a2ui] surface for action:", action.surfaceId, "→ data:", fullData, "→ form:", formData);
+  if (formData) context.data = formData;
+  console.log("[a2ui] dispatching context:", context);
+
+  useStore.getState().sendAction({ name: action.name, context });
 });
 
 processor.onSurfaceCreated((surface) => {
